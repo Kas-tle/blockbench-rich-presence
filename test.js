@@ -1,33 +1,32 @@
-'use strict';
 
-const client = require('.')('642126871177199617');
+const DiscordRPC = require("discord-rpc")
+const clientId = "398111176145502209"
 
-client.on('join', (secret) => {
-  console.log('we should join with', secret);
-});
+const rpc = new DiscordRPC.Client({ transport: "ipc" })
+const startTimestamp = new Date()
 
-client.on('spectate', (secret) => {
-  console.log('we should spectate with', secret);
-});
-
-client.on('joinRequest', (user) => {
-  if (user.discriminator === '1337') {
-    client.reply(user, 'YES');
-  } else {
-    client.reply(user, 'IGNORE');
+async function setActivity() {
+  if (!rpc) {
+    return
   }
-});
 
-client.on('connected', () => {
-  console.log('connected!');
+  rpc.setActivity({
+    largeImageKey: 'blockbench',
+    largeImageText: 'Blockbench',
+    details: "Working on blockmodel",
+    state: `"${Project.name}"`,
+    startTimestamp,
+    instance: false,
+  })
+}
 
-  client.updatePresence({
-    state: 'Making 3D Models',
-    details: '‍💻',
-    startTimestamp: new Date(),
-    largeImageKey: 'icon',
-    smallImageKey: 'icon',
-  });
-});
+rpc.on('ready', () => {
+  setActivity()
+  intervalID = setInterval(() => {
+    setActivity()
+  }, 15e3)
+})
 
-process.on('unhandledRejection', console.error);
+rpc.login({ clientId }).catch(console.error)
+
+
