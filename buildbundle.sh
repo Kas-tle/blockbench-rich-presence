@@ -1,1 +1,1 @@
-browserify test.js --node > bundle.js
+webpack ./test.js
