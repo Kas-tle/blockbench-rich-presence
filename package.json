@@ -30,6 +30,7 @@
     "discord-rpc": "github:discordjs/rpc",
     "electron": "^7.1.1",
     "encoding": "^0.1.12",
+    "register-scheme": "0.0.2",
     "utf-8-validate": "^5.0.2"
   },
   "devDependencies": {
