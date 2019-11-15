@@ -1,6 +1,6 @@
 
 const DiscordRPC = require("discord-rpc")
-const clientId = "398111176145502209"
+const clientId = "642126871177199617"
 
 const rpc = new DiscordRPC.Client({ transport: "ipc" })
 const startTimestamp = new Date()
@@ -11,10 +11,11 @@ async function setActivity() {
   }
 
   rpc.setActivity({
-    largeImageKey: 'blockbench',
-    largeImageText: 'Blockbench',
-    details: "Working on blockmodel",
-    state: `"${Project.name}"`,
+    largeImageKey: 'icon',
+    largeImageText: `Blockbench ${Blockbench.version}`,
+    smallImageKey: `${Format.id}`,
+    details: `Making a ${Format.name}`,
+    state: `${Project.name}.json`,
     startTimestamp,
     instance: false,
   })
@@ -28,5 +29,3 @@ rpc.on('ready', () => {
 })
 
 rpc.login({ clientId }).catch(console.error)
-
-
