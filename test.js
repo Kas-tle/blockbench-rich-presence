@@ -10,7 +10,7 @@ async function setActivity() {
     return
   }
 
-  var discordrpcfilename = (Settings.get('obfiscaterpc')) ? "Unknown Model":`${Project.name}.bbmodel`;
+  var discordrpcfilename = (Settings.get('obfuscaterpc')) ? "Unknown Model":`${Project.name}.bbmodel`;
 
   rpc.setActivity({
     largeImageKey: 'icon',
