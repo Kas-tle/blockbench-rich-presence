@@ -1,7 +1,9 @@
 const path = require('path')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
-module.exports = {
+const BUILD_DIR = path.resolve(__dirname, 'dist/')
+
+const config = {
   optimization: {
     minimizer: [
       new UglifyJSPlugin({
@@ -14,14 +16,19 @@ module.exports = {
       }),
     ],
   },
-  mode: 'production',
-  entry: './test.js',
-  target: 'electron-renderer',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+  entry: {
+    plugin: './main.js'
   },
+  output: {
+    path: BUILD_DIR,
+    publicPath: '/',
+    filename: 'discord-rpc.js'
+  },
+  target: 'electron-renderer',
+  mode: 'production',
   externals: [
-    "electron"
+    'electron'
   ]
 }
+
+module.exports = config;

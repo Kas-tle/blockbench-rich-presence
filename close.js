@@ -1,8 +1,0 @@
-
-	},
-	onunload() {
-		setting.delete();
-	}
-});
-
-})()
