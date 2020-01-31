@@ -1,11 +1,56 @@
-var plugin_data = {
-	id: 'discord-rpc',
-	title: 'Discord Rich Presence',
-	icon: 'announcement', //Material icon name
-	author: 'strajabot & Kastle',
-	description: 'Show a rich presence status in Discord',
-	version: '1.0.0', //Plugin version
-	variant: 'desktop'	// 'both', 'web', 'desktop'
+var removeFileNameAction;
+
+Plugin.register('discord_rpc', {
+    title: 'Discord Rich Presence',
+    icon: 'announcement',
+    author: 'strajabot and Kastle',
+    description: 'Show a rich presence status in Discord',
+    version: '1.0.0',
+    min_version: '3.0.0',
+    variant: 'desktop',
+
+    onload() {
+        removeFileNameAction = new Action({
+            id: 'remove_filenaname',
+            name: 'Discord RPC',
+            icon: 'announcement',
+            description: 'Discord RPC Settings',
+            category: 'filter',
+            click: function (ev) {
+                settingsDialog.show();
+            }
+        });
+        MenuBar.addAction(removeFileNameAction, 'filter');
+    },
+    onunload() {
+        this.onuninstall();
+    },
+    onuninstall() {
+        removeFileNameAction.delete();
+    }
+})
+
+var settingsDialog = new Dialog({
+    id: 'discordrpc_settings',
+    title: 'Discord RPC Settings',
+    draggable: true,
+    form: {
+        hide_names: {label: 'Hide Filename', type: 'checkbox'}
+    },
+    onConfirm: function(data) {
+        exportSettings(data.hide_names);
+        settingsDialog.hide();
+    }
+});
+
+function exportSettings(hide_names) {
+	var project_name;
+	if (hide_names) {
+		project_name = 'in Blockbench';
+	}
+	else {
+		project_name = `${Project.name}.json`;
+	}
 }
 !function(e) {
     var t = {};
@@ -164,7 +209,7 @@ var plugin_data = {
             largeImageText: `Blockbench ${Blockbench.version}`,
             smallImageKey: `${Format.id}`,
             details: `Making a ${Format.name}`,
-            state: `${Project.name}.json`,
+            state: `${project_name}`,
             startTimestamp: i,
             instance: !1
         });
