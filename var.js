@@ -20,8 +20,8 @@ Plugin.register("discord-rpc", {
 "description": "Show a rich presence status in Discord",
 onload() {
 
-		setting = new Setting('obfiscaterpc', {
+		setting = new Setting('obfuscaterpc', {
 			value: true,
 			name: 'Discord Rich Prescense',
-			description: 'Obfiscate Project Name',
+			description: 'Obfuscate Project Name',
 		})
