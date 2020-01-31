@@ -150,15 +150,18 @@
         transport: "ipc"
     }), i = new Date();
     async function o() {
-        n && n.setActivity({
-            largeImageKey: "icon",
-            largeImageText: `Blockbench ${Blockbench.version}`,
-            smallImageKey: `${Format.id}`,
-            details: `Making a ${Format.name}`,
-            state: `${project_name}`,
-            startTimestamp: i,
-            instance: !1
-        });
+        if (n) {
+            var e = Settings.get("obfiscaterpc") ? "Unknown Model" : `${Project.name}.bbmodel`;
+            n.setActivity({
+                largeImageKey: "icon",
+                largeImageText: `Blockbench ${Blockbench.version}`,
+                smallImageKey: `${Format.id}`,
+                details: `Making a ${Format.name}`,
+                state: `${e}`,
+                startTimestamp: i,
+                instance: !1
+            });
+        }
     }
     n.on("ready", () => {
         o(), intervalID = setInterval(() => {
