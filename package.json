@@ -1,6 +1,6 @@
 {
   "name": "discord-rich-presence",
-  "version": "1.0.1",
+  "version": "0.0.9",
   "description": "rich presence wrapper for discord-rpc",
   "main": "index.js",
   "unpkg": "browser.js",
