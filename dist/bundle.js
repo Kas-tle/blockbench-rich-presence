@@ -155,7 +155,7 @@
             largeImageText: `Blockbench ${Blockbench.version}`,
             smallImageKey: `${Format.id}`,
             details: `Making a ${Format.name}`,
-            state: `${Project.name}.json`,
+            state: `${project_name}`,
             startTimestamp: i,
             instance: !1
         });
