@@ -1,57 +1,30 @@
-var removeFileNameAction;
+var plugin_data = {
 
-Plugin.register('discord_rpc', {
-    title: 'Discord Rich Presence',
-    icon: 'announcement',
-    author: 'strajabot and Kastle',
-    description: 'Show a rich presence status in Discord',
-    version: '1.0.0',
-    min_version: '3.0.0',
-    variant: 'desktop',
+	id: 'discord-rpc',
+	title: 'Discord Rich Presence',
+	icon: 'announcement', //Material icon name
+	author: 'strajabot & Kastle',
+	description: 'Show a rich presence status in Discord',
+	version: '1.0.0', //Plugin version
+	variant: 'desktop'	// 'both', 'web', 'desktop'
+};
 
-    onload() {
-        removeFileNameAction = new Action({
-            id: 'remove_filenaname',
-            name: 'Discord RPC',
-            icon: 'announcement',
-            description: 'Discord RPC Settings',
-            category: 'filter',
-            click: function (ev) {
-                settingsDialog.show();
-            }
-        });
-        MenuBar.addAction(removeFileNameAction, 'filter');
-    },
-    onunload() {
-        this.onuninstall();
-    },
-    onuninstall() {
-        removeFileNameAction.delete();
-    }
-})
+(function() {
 
-var settingsDialog = new Dialog({
-    id: 'discordrpc_settings',
-    title: 'Discord RPC Settings',
-    draggable: true,
-    form: {
-        hide_names: {label: 'Hide Filename', type: 'checkbox'}
-    },
-    onConfirm: function(data) {
-        exportSettings(data.hide_names);
-        settingsDialog.hide();
-    }
-});
+var setting;
 
-function exportSettings(hide_names) {
-	var project_name;
-	if (hide_names) {
-		project_name = 'in Blockbench';
-	}
-	else {
-		project_name = `${Project.name}.json`;
-	}
-}
+Plugin.register("discord-rpc", {
+"author": "strajabot & Kastle",
+"icon": "announcement",
+"version": "1.0.0",
+"description": "Show a rich presence status in Discord",
+onload() {
+
+		setting = new Setting('obfiscaterpc', {
+			value: true,
+			name: 'Discord Rich Prescense',
+			description: 'Obfiscate Project Name',
+		})
 !function(e) {
     var t = {};
     function s(n) {
@@ -204,15 +177,18 @@ function exportSettings(hide_names) {
         transport: "ipc"
     }), i = new Date();
     async function o() {
-        n && n.setActivity({
-            largeImageKey: "icon",
-            largeImageText: `Blockbench ${Blockbench.version}`,
-            smallImageKey: `${Format.id}`,
-            details: `Making a ${Format.name}`,
-            state: `${project_name}`,
-            startTimestamp: i,
-            instance: !1
-        });
+        if (n) {
+            var e = Settings.get("obfiscaterpc") ? "Unknown Model" : `${Project.name}.bbmodel`;
+            n.setActivity({
+                largeImageKey: "icon",
+                largeImageText: `Blockbench ${Blockbench.version}`,
+                smallImageKey: `${Format.id}`,
+                details: `Making a ${Format.name}`,
+                state: `${e}`,
+                startTimestamp: i,
+                instance: !1
+            });
+        }
     }
     n.on("ready", () => {
         o(), intervalID = setInterval(() => {
@@ -725,3 +701,10 @@ function exportSettings(hide_names) {
         }
     };
 }, function(e, t) {} ]);
+	},
+	onunload() {
+		setting.delete();
+	}
+});
+
+})()
