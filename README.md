@@ -4,7 +4,7 @@
 
 Creating a Discord rich presence plugin for Blockbench.
 
-### Creating bundle.js
+### Creating discord-rpc.js
 
 ```
 sh buildbundle.sh
