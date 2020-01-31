@@ -10,12 +10,14 @@ async function setActivity() {
     return
   }
 
+  var discordrpcfilename = (Settings.get('obfiscaterpc')) ? "Unknown Model":`${Project.name}.bbmodel`;
+
   rpc.setActivity({
     largeImageKey: 'icon',
     largeImageText: `Blockbench ${Blockbench.version}`,
     smallImageKey: `${Format.id}`,
     details: `Making a ${Format.name}`,
-    state: `${Project.name}.json`,
+    state: `${discordrpcfilename}`,
     startTimestamp,
     instance: false,
   })
