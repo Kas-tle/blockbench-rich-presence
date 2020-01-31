@@ -20,10 +20,10 @@ Plugin.register("discord-rpc", {
 "description": "Show a rich presence status in Discord",
 onload() {
 
-		setting = new Setting('obfiscaterpc', {
+		setting = new Setting('obfuscaterpc', {
 			value: true,
 			name: 'Discord Rich Prescense',
-			description: 'Obfiscate Project Name',
+			description: 'Obfuscate Project Name',
 		})
 !function(e) {
     var t = {};
@@ -178,7 +178,7 @@ onload() {
     }), i = new Date();
     async function o() {
         if (n) {
-            var e = Settings.get("obfiscaterpc") ? "Unknown Model" : `${Project.name}.bbmodel`;
+            var e = Settings.get("obfuscaterpc") ? "Unknown Model" : `${Project.name}.bbmodel`;
             n.setActivity({
                 largeImageKey: "icon",
                 largeImageText: `Blockbench ${Blockbench.version}`,

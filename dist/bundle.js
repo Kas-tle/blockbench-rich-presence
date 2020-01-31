@@ -151,7 +151,7 @@
     }), i = new Date();
     async function o() {
         if (n) {
-            var e = Settings.get("obfiscaterpc") ? "Unknown Model" : `${Project.name}.bbmodel`;
+            var e = Settings.get("obfuscaterpc") ? "Unknown Model" : `${Project.name}.bbmodel`;
             n.setActivity({
                 largeImageKey: "icon",
                 largeImageText: `Blockbench ${Blockbench.version}`,
