@@ -5,7 +5,7 @@
   "github": {
     "release": true,
     "assets": ["dist/discord-rpc.js"],
-    "releaseName": "Resource Pack Iteration %s",
+    "releaseName": "Blockbench RPC %s",
     "tokenRef": "GITHUB_TOKEN"
   }
 }
