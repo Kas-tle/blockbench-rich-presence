@@ -1,0 +1,11 @@
+{
+  "git": {
+    "changelog": "git log --pretty=format:'* %s (%h)' [REV_RANGE]"
+  },
+  "github": {
+    "release": true,
+    "assets": ["dist/discord-rpc.js"],
+    "releaseName": "Resource Pack Iteration %s",
+    "tokenRef": "GITHUB_TOKEN"
+  }
+}
