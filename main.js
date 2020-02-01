@@ -14,10 +14,11 @@ let curProject = ''
 
 Plugin.register('discord-rpc', {
   title: 'Discord RPC',
-  author: 'strajabot & Kastle & simplyme',
+  author: 'strajabot, Kastle, & simplyme',
   icon: 'announcement',
-  version: '1.0.1',
+  version: '1.1.1',
   description: 'Show a rich presence status in Discord',
+  variant: 'desktop',
   onload() {
     setting = new Setting('obfuscaterpc', {
       value: true,
