@@ -152,8 +152,8 @@
     const s = n(5),
         i = new s.Client({
             transport: "ipc"
-        }),
-        o = new Date;
+        });
+    var o = new Date;
     ! function() {
         let e, t, n = !0,
             s = "";
@@ -168,12 +168,12 @@
                 async function r() {
                     if (!i) return;
                     s !== Project.name && (s = Project.name, o = new Date);
-                    const e = Settings.get("obfuscaterpc") ? "Unknown Model" : `${s}.bbmodel`,
-                        t = {
-                            edit: "Editing",
-                            paint: "Painting",
-                            animate: "Animating"
-                        } [Modes.selected.id] || "Making";
+                    var e = Settings.get("obfuscaterpc") ? "Unknown Model" : `${s}.bbmodel`;
+                    const t = {
+                        edit: "Editing",
+                        paint: "Painting",
+                        animate: "Animating"
+                    } [Modes.selected.id] || "Making";
                     i.setActivity({
                         largeImageKey: "icon",
                         largeImageText: `Blockbench ${Blockbench.version}`,
