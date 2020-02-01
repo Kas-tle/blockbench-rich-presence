@@ -6,6 +6,7 @@
   "unpkg": "browser.js",
   "jsdelivr": "browser.js",
   "scripts": {
+    "build": "webpack",
     "build:browser": "webpack",
     "prepublishOnly": "env NODE_ENV=production npm run build:browser"
   },
@@ -35,6 +36,7 @@
   },
   "devDependencies": {
     "uglifyjs-webpack-plugin": "^1.1.2",
-    "webpack": "^3.10.0"
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   }
 }

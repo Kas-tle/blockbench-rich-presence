@@ -1,124 +1,97 @@
-var plugin_data = {
-
-	id: 'discord-rpc',
-	title: 'Discord Rich Presence',
-	icon: 'announcement', //Material icon name
-	author: 'strajabot & Kastle',
-	description: 'Show a rich presence status in Discord',
-	version: '1.0.0', //Plugin version
-	variant: 'desktop'	// 'both', 'web', 'desktop'
-};
-
-(function() {
-
-var setting;
-
-Plugin.register("discord-rpc", {
-"author": "strajabot & Kastle",
-"icon": "announcement",
-"version": "1.0.0",
-"description": "Show a rich presence status in Discord",
-onload() {
-
-		setting = new Setting('obfuscaterpc', {
-			value: true,
-			name: 'Discord Rich Prescense',
-			description: 'Obfuscate Project Name',
-		})
 !function(e) {
     var t = {};
-    function s(n) {
-        if (t[n]) return t[n].exports;
-        var i = t[n] = {
-            i: n,
+    function n(s) {
+        if (t[s]) return t[s].exports;
+        var i = t[s] = {
+            i: s,
             l: !1,
             exports: {}
         };
-        return e[n].call(i.exports, i, i.exports, s), i.l = !0, i.exports;
+        return e[s].call(i.exports, i, i.exports, n), i.l = !0, i.exports;
     }
-    s.m = e, s.c = t, s.d = function(e, t, n) {
-        s.o(e, t) || Object.defineProperty(e, t, {
+    n.m = e, n.c = t, n.d = function(e, t, s) {
+        n.o(e, t) || Object.defineProperty(e, t, {
             enumerable: !0,
-            get: n
+            get: s
         });
-    }, s.r = function(e) {
+    }, n.r = function(e) {
         "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
             value: "Module"
         }), Object.defineProperty(e, "__esModule", {
             value: !0
         });
-    }, s.t = function(e, t) {
-        if (1 & t && (e = s(e)), 8 & t) return e;
+    }, n.t = function(e, t) {
+        if (1 & t && (e = n(e)), 8 & t) return e;
         if (4 & t && "object" == typeof e && e && e.__esModule) return e;
-        var n = Object.create(null);
-        if (s.r(n), Object.defineProperty(n, "default", {
+        var s = Object.create(null);
+        if (n.r(s), Object.defineProperty(s, "default", {
             enumerable: !0,
             value: e
-        }), 2 & t && "string" != typeof e) for (var i in e) s.d(n, i, function(t) {
+        }), 2 & t && "string" != typeof e) for (var i in e) n.d(s, i, function(t) {
             return e[t];
         }.bind(null, i));
-        return n;
-    }, s.n = function(e) {
+        return s;
+    }, n.n = function(e) {
         var t = e && e.__esModule ? function() {
             return e.default;
         } : function() {
             return e;
         };
-        return s.d(t, "a", t), t;
-    }, s.o = function(e, t) {
+        return n.d(t, "a", t), t;
+    }, n.o = function(e, t) {
         return Object.prototype.hasOwnProperty.call(e, t);
-    }, s.p = "", s(s.s = 4);
-}([ function(e, t, s) {
+    }, n.p = "/", n(n.s = 4);
+}([ function(e, t, n) {
     "use strict";
-    let n;
+    let s;
     try {
-        const {app: e} = s(6);
-        n = e.setAsDefaultProtocolClient.bind(e);
+        const {app: e} = n(6);
+        s = e.setAsDefaultProtocolClient.bind(e);
     } catch (e) {
         try {
-            n = s(7);
+            s = n(7);
         } catch (e) {}
     }
-    "function" != typeof n && (n = (() => !1));
+    "function" != typeof s && (s = (() => !1));
     e.exports = {
         pid: function() {
             return "undefined" != typeof process ? process.pid : null;
         },
-        register: n,
+        register: s,
         uuid: () => {
             let e = "";
             for (let t = 0; t < 32; t += 1) {
-                let s;
-                if (8 !== t && 12 !== t && 16 !== t && 20 !== t || (e += "-"), 12 === t) s = 4; else {
+                let n;
+                if (8 !== t && 12 !== t && 16 !== t && 20 !== t || (e += "-"), 12 === t) n = 4; else {
                     const e = 16 * Math.random() | 0;
-                    s = 16 === t ? 3 & e | 0 : e;
+                    n = 16 === t ? 3 & e | 0 : e;
                 }
-                e += s.toString(16);
+                e += n.toString(16);
             }
             return e;
         }
     };
 }, function(e, t) {
     e.exports = require("events");
-}, function(e, t, s) {
+}, function(e, t, n) {
     "use strict";
-    var n = function() {
+    var s = function() {
         if ("undefined" != typeof self) return self;
         if ("undefined" != typeof window) return window;
-        if (void 0 !== n) return n;
+        if (void 0 !== s) return s;
         throw new Error("unable to locate global object");
     }();
-    e.exports = t = n.fetch, t.default = n.fetch.bind(n), t.Headers = n.Headers, t.Request = n.Request, 
-    t.Response = n.Response;
-}, function(e, t, s) {
+    e.exports = t = s.fetch, t.default = s.fetch.bind(s), t.Headers = s.Headers, t.Request = s.Request, 
+    t.Response = s.Response;
+}, function(e, t, n) {
     "use strict";
-    function n(e) {
+    function s(e) {
         const t = {};
-        for (const s of e) t[s] = s;
+        for (const n of e) t[n] = n;
         return t;
     }
-    t.browser = "undefined" != typeof window, t.RPCCommands = n([ "DISPATCH", "AUTHORIZE", "AUTHENTICATE", "GET_GUILD", "GET_GUILDS", "GET_CHANNEL", "GET_CHANNELS", "GET_RELATIONSHIPS", "GET_USER", "SUBSCRIBE", "UNSUBSCRIBE", "SET_USER_VOICE_SETTINGS", "SET_USER_VOICE_SETTINGS_2", "SELECT_VOICE_CHANNEL", "GET_SELECTED_VOICE_CHANNEL", "SELECT_TEXT_CHANNEL", "GET_VOICE_SETTINGS", "SET_VOICE_SETTINGS_2", "SET_VOICE_SETTINGS", "CAPTURE_SHORTCUT", "SET_ACTIVITY", "SEND_ACTIVITY_JOIN_INVITE", "CLOSE_ACTIVITY_JOIN_REQUEST", "ACTIVITY_INVITE_USER", "ACCEPT_ACTIVITY_INVITE", "INVITE_BROWSER", "DEEP_LINK", "CONNECTIONS_CALLBACK", "BRAINTREE_POPUP_BRIDGE_CALLBACK", "GIFT_CODE_BROWSER", "OVERLAY", "BROWSER_HANDOFF", "SET_CERTIFIED_DEVICES", "GET_IMAGE", "CREATE_LOBBY", "UPDATE_LOBBY", "DELETE_LOBBY", "UPDATE_LOBBY_MEMBER", "CONNECT_TO_LOBBY", "DISCONNECT_FROM_LOBBY", "SEND_TO_LOBBY", "SEARCH_LOBBIES", "CONNECT_TO_LOBBY_VOICE", "DISCONNECT_FROM_LOBBY_VOICE", "SET_OVERLAY_LOCKED", "OPEN_OVERLAY_ACTIVITY_INVITE", "OPEN_OVERLAY_GUILD_INVITE", "OPEN_OVERLAY_VOICE_SETTINGS", "VALIDATE_APPLICATION", "GET_ENTITLEMENT_TICKET", "GET_APPLICATION_TICKET", "START_PURCHASE", "GET_SKUS", "GET_ENTITLEMENTS", "GET_NETWORKING_CONFIG", "NETWORKING_SYSTEM_METRICS", "NETWORKING_PEER_METRICS", "NETWORKING_CREATE_TOKEN", "SET_USER_ACHIEVEMENT", "GET_USER_ACHIEVEMENTS" ]), 
-    t.RPCEvents = n([ "CURRENT_USER_UPDATE", "GUILD_STATUS", "GUILD_CREATE", "CHANNEL_CREATE", "RELATIONSHIP_UPDATE", "VOICE_CHANNEL_SELECT", "VOICE_STATE_CREATE", "VOICE_STATE_DELETE", "VOICE_STATE_UPDATE", "VOICE_SETTINGS_UPDATE", "VOICE_SETTINGS_UPDATE_2", "VOICE_CONNECTION_STATUS", "SPEAKING_START", "SPEAKING_STOP", "GAME_JOIN", "GAME_SPECTATE", "ACTIVITY_JOIN", "ACTIVITY_JOIN_REQUEST", "ACTIVITY_SPECTATE", "ACTIVITY_INVITE", "NOTIFICATION_CREATE", "MESSAGE_CREATE", "MESSAGE_UPDATE", "MESSAGE_DELETE", "LOBBY_DELETE", "LOBBY_UPDATE", "LOBBY_MEMBER_CONNECT", "LOBBY_MEMBER_DISCONNECT", "LOBBY_MEMBER_UPDATE", "LOBBY_MESSAGE", "CAPTURE_SHORTCUT_CHANGE", "OVERLAY", "OVERLAY_UPDATE", "ENTITLEMENT_CREATE", "ENTITLEMENT_DELETE", "USER_ACHIEVEMENT_UPDATE", "READY", "ERROR" ]), 
+    t.browser = "undefined" != typeof window, t.RPCCommands = s([ "DISPATCH", "AUTHORIZE", "AUTHENTICATE", "GET_GUILD", "GET_GUILDS", "GET_CHANNEL", "GET_CHANNELS", "GET_RELATIONSHIPS", "GET_USER", "SUBSCRIBE", "UNSUBSCRIBE", "SET_USER_VOICE_SETTINGS", "SET_USER_VOICE_SETTINGS_2", "SELECT_VOICE_CHANNEL", "GET_SELECTED_VOICE_CHANNEL", "SELECT_TEXT_CHANNEL", "GET_VOICE_SETTINGS", "SET_VOICE_SETTINGS_2", "SET_VOICE_SETTINGS", "CAPTURE_SHORTCUT", "SET_ACTIVITY", "SEND_ACTIVITY_JOIN_INVITE", "CLOSE_ACTIVITY_JOIN_REQUEST", "ACTIVITY_INVITE_USER", "ACCEPT_ACTIVITY_INVITE", "INVITE_BROWSER", "DEEP_LINK", "CONNECTIONS_CALLBACK", "BRAINTREE_POPUP_BRIDGE_CALLBACK", "GIFT_CODE_BROWSER", "OVERLAY", "BROWSER_HANDOFF", "SET_CERTIFIED_DEVICES", "GET_IMAGE", "CREATE_LOBBY", "UPDATE_LOBBY", "DELETE_LOBBY", "UPDATE_LOBBY_MEMBER", "CONNECT_TO_LOBBY", "DISCONNECT_FROM_LOBBY", "SEND_TO_LOBBY", "SEARCH_LOBBIES", "CONNECT_TO_LOBBY_VOICE", "DISCONNECT_FROM_LOBBY_VOICE", "SET_OVERLAY_LOCKED", "OPEN_OVERLAY_ACTIVITY_INVITE", "OPEN_OVERLAY_GUILD_INVITE", "OPEN_OVERLAY_VOICE_SETTINGS", "VALIDATE_APPLICATION", "GET_ENTITLEMENT_TICKET", "GET_APPLICATION_TICKET", "START_PURCHASE", "GET_SKUS", "GET_ENTITLEMENTS", "GET_NETWORKING_CONFIG", "NETWORKING_SYSTEM_METRICS", "NETWORKING_PEER_METRICS", "NETWORKING_CREATE_TOKEN", "SET_USER_ACHIEVEMENT", "GET_USER_ACHIEVEMENTS" ]), 
+    t.RPCEvents = s([ "CURRENT_USER_UPDATE", "GUILD_STATUS", "GUILD_CREATE", "CHANNEL_CREATE", "RELATIONSHIP_UPDATE", "VOICE_CHANNEL_SELECT", "VOICE_STATE_CREATE", "VOICE_STATE_DELETE", "VOICE_STATE_UPDATE", "VOICE_SETTINGS_UPDATE", "VOICE_SETTINGS_UPDATE_2", "VOICE_CONNECTION_STATUS", "SPEAKING_START", "SPEAKING_STOP", "GAME_JOIN", "GAME_SPECTATE", "ACTIVITY_JOIN", "ACTIVITY_JOIN_REQUEST", "ACTIVITY_SPECTATE", "ACTIVITY_INVITE", "NOTIFICATION_CREATE", "MESSAGE_CREATE", "MESSAGE_UPDATE", "MESSAGE_DELETE", "LOBBY_DELETE", "LOBBY_UPDATE", "LOBBY_MEMBER_CONNECT", "LOBBY_MEMBER_DISCONNECT", "LOBBY_MEMBER_UPDATE", "LOBBY_MESSAGE", "CAPTURE_SHORTCUT_CHANGE", "OVERLAY", "OVERLAY_UPDATE", "ENTITLEMENT_CREATE", "ENTITLEMENT_DELETE", "USER_ACHIEVEMENT_UPDATE", "READY", "ERROR" ]), 
     t.RPCErrors = {
         CAPTURE_SHORTCUT_ALREADY_LISTENING: 5004,
         GET_GUILD_TIMED_OUT: 5002,
@@ -172,59 +145,92 @@ onload() {
         PENDING_OUTGOING: 4,
         IMPLICIT: 5
     };
-}, function(e, t, s) {
-    const n = new (s(5).Client)({
+}, function(e, t, n) {
+    const s = new (n(5).Client)({
         transport: "ipc"
     }), i = new Date();
-    async function o() {
-        if (n) {
-            var e = Settings.get("obfuscaterpc") ? "Unknown Model" : `${Project.name}.bbmodel`;
-            n.setActivity({
-                largeImageKey: "icon",
-                largeImageText: `Blockbench ${Blockbench.version}`,
-                smallImageKey: `${Format.id}`,
-                details: `Making a ${Format.name}`,
-                state: `${e}`,
-                startTimestamp: i,
-                instance: !1
-            });
-        }
-    }
-    n.on("ready", () => {
-        o(), intervalID = setInterval(() => {
-            o();
-        }, 15e3);
-    }), n.login({
-        clientId: "642126871177199617"
-    }).catch(console.error);
-}, function(e, t, s) {
+    !function() {
+        let e, t, n = !0, o = "";
+        Plugin.register("discord-rpc", {
+            title: "Discord RPC",
+            author: "strajabot & Kastle & simplyme",
+            icon: "announcement",
+            version: "1.0.1",
+            description: "Show a rich presence status in Discord",
+            onload() {
+                async function r() {
+                    if (!s) return;
+                    o !== Project.name && (o = Project.name, i = new Date());
+                    const e = Settings.get("obfuscaterpc") ? "Unknown Model" : `${o}.bbmodel`, t = {
+                        edit: "Editing",
+                        paint: "Painting",
+                        animate: "Animating"
+                    }[Modes.selected.id] || "Making";
+                    s.setActivity({
+                        largeImageKey: "icon",
+                        largeImageText: `Blockbench ${Blockbench.version}`,
+                        smallImageKey: `${Format.id}`,
+                        details: `${t} a ${Format.name}`,
+                        state: `${e}`,
+                        startTimestamp: i,
+                        instance: !1
+                    });
+                }
+                e = new Setting("obfuscaterpc", {
+                    value: !0,
+                    name: "Discord Rich Prescense",
+                    description: "Obfuscate Project Name"
+                });
+                const c = Modes.options;
+                Object.keys(c).forEach(e => {
+                    const t = Modes.options[e];
+                    if (t.onSelect && "function" == typeof t.onSelect) {
+                        let e = t.onSelect;
+                        t.onSelect = (() => {
+                            e.apply(this, arguments), n && r();
+                        });
+                    }
+                }), s.on("ready", () => {
+                    r(), t = setInterval(() => {
+                        r();
+                    }, 15e3);
+                }), s.login({
+                    clientId: "642126871177199617"
+                }).catch(console.error);
+            },
+            onunload() {
+                n = !1, e.delete(), clearInterval(t);
+            }
+        });
+    }();
+}, function(e, t, n) {
     "use strict";
-    const n = s(0);
+    const s = n(0);
     e.exports = {
-        Client: s(8),
-        register: e => n.register(`discord-${e}`)
+        Client: n(8),
+        register: e => s.register(`discord-${e}`)
     };
 }, function(e, t) {
     if ("undefined" == typeof electron) {
-        var s = new Error("Cannot find module 'electron'");
-        throw s.code = "MODULE_NOT_FOUND", s;
+        var n = new Error("Cannot find module 'electron'");
+        throw n.code = "MODULE_NOT_FOUND", n;
     }
     e.exports = electron;
-}, function(e, t) {}, function(e, t, s) {
+}, function(e, t) {}, function(e, t, n) {
     "use strict";
-    const n = s(1), {setTimeout: i, clearTimeout: o} = s(9), r = s(2), c = s(10), {RPCCommands: E, RPCEvents: a, RelationshipTypes: _} = s(3), {pid: T, uuid: u} = s(0);
-    function I(e, t) {
+    const s = n(1), {setTimeout: i, clearTimeout: o} = n(9), r = n(2), c = n(10), {RPCCommands: E, RPCEvents: a, RelationshipTypes: _} = n(3), {pid: u, uuid: T} = n(0);
+    function d(e, t) {
         return `${e}${JSON.stringify(t)}`;
     }
-    e.exports = class extends n {
+    e.exports = class extends s {
         constructor(e = {}) {
             super(), this.options = e, this.accessToken = null, this.clientId = null, this.application = null, 
             this.user = null;
             const t = c[e.transport];
             if (!t) throw new TypeError("RPC_INVALID_TRANSPORT", e.transport);
-            this.fetch = ((e, t, {data: s, query: n} = {}) => r(`${this.fetch.endpoint}${t}${n ? new URLSearchParams(n) : ""}`, {
+            this.fetch = ((e, t, {data: n, query: s} = {}) => r(`${this.fetch.endpoint}${t}${s ? new URLSearchParams(s) : ""}`, {
                 method: e,
-                body: s,
+                body: n,
                 headers: {
                     Authorization: `Bearer ${this.accessToken}`
                 }
@@ -233,33 +239,33 @@ onload() {
             this._subscriptions = new Map(), this._connectPromise = void 0;
         }
         connect(e) {
-            return this._connectPromise ? this._connectPromise : (this._connectPromise = new Promise((t, s) => {
+            return this._connectPromise ? this._connectPromise : (this._connectPromise = new Promise((t, n) => {
                 this.clientId = e;
-                const n = i(() => s(new Error("RPC_CONNECTION_TIMEOUT")), 1e4);
-                n.unref(), this.once("connected", () => {
-                    o(n), t(this);
+                const s = i(() => n(new Error("RPC_CONNECTION_TIMEOUT")), 1e4);
+                s.unref(), this.once("connected", () => {
+                    o(s), t(this);
                 }), this.transport.once("close", () => {
                     this._expecting.forEach(e => {
                         e.reject(new Error("connection closed"));
-                    }), this.emit("disconnected"), s();
-                }), this.transport.connect().catch(s);
+                    }), this.emit("disconnected"), n();
+                }), this.transport.connect().catch(n);
             }), this._connectPromise);
         }
         async login(e = {}) {
-            let {clientId: t, accessToken: s} = e;
-            return await this.connect(t), e.scopes ? (s || (s = await this.authorize(e)), this.authenticate(s)) : (this.emit("ready"), 
+            let {clientId: t, accessToken: n} = e;
+            return await this.connect(t), e.scopes ? (n || (n = await this.authorize(e)), this.authenticate(n)) : (this.emit("ready"), 
             this);
         }
-        request(e, t, s) {
-            return new Promise((n, i) => {
-                const o = u();
+        request(e, t, n) {
+            return new Promise((s, i) => {
+                const o = T();
                 this.transport.send({
                     cmd: e,
                     args: t,
-                    evt: s,
+                    evt: n,
                     nonce: o
                 }), this._expecting.set(o, {
-                    resolve: n,
+                    resolve: s,
                     reject: i
                 });
             });
@@ -267,20 +273,20 @@ onload() {
         _onRpcMessage(e) {
             if (e.cmd === E.DISPATCH && e.evt === a.READY) e.data.user && (this.user = e.data.user), 
             this.emit("connected"); else if (this._expecting.has(e.nonce)) {
-                const {resolve: t, reject: s} = this._expecting.get(e.nonce);
+                const {resolve: t, reject: n} = this._expecting.get(e.nonce);
                 if ("ERROR" === e.evt) {
                     const t = new Error(e.data.message);
-                    t.code = e.data.code, t.data = e.data, s(t);
+                    t.code = e.data.code, t.data = e.data, n(t);
                 } else t(e.data);
                 this._expecting.delete(e.nonce);
             } else {
-                const t = I(e.evt, e.args);
+                const t = d(e.evt, e.args);
                 if (!this._subscriptions.has(t)) return;
                 this._subscriptions.get(t)(e.data);
             }
         }
-        async authorize({scopes: e, clientSecret: t, rpcToken: s, redirectUri: n} = {}) {
-            t && !0 === s && (s = (await this.fetch("POST", "/oauth2/token/rpc", {
+        async authorize({scopes: e, clientSecret: t, rpcToken: n, redirectUri: s} = {}) {
+            t && !0 === n && (n = (await this.fetch("POST", "/oauth2/token/rpc", {
                 data: new URLSearchParams({
                     client_id: this.clientId,
                     client_secret: t
@@ -289,8 +295,8 @@ onload() {
             const {code: i} = await this.request("AUTHORIZE", {
                 scopes: e,
                 client_id: this.clientId,
-                rpc_token: s,
-                redirect_uri: n
+                rpc_token: n,
+                redirect_uri: s
             });
             return (await this.fetch("POST", "/oauth2/token", {
                 data: new URLSearchParams({
@@ -298,15 +304,15 @@ onload() {
                     client_secret: t,
                     code: i,
                     grant_type: "authorization_code",
-                    redirect_uri: n
+                    redirect_uri: s
                 })
             })).access_token;
         }
         authenticate(e) {
             return this.request("AUTHENTICATE", {
                 access_token: e
-            }).then(({application: t, user: s}) => (this.accessToken = e, this.application = t, 
-            this.user = s, this.emit("ready"), this));
+            }).then(({application: t, user: n}) => (this.accessToken = e, this.application = t, 
+            this.user = n, this.emit("ready"), this));
         }
         getGuild(e, t) {
             return this.request(E.GET_GUILD, {
@@ -326,11 +332,11 @@ onload() {
             });
         }
         async getChannels(e, t) {
-            const {channels: s} = await this.request(E.GET_CHANNELS, {
+            const {channels: n} = await this.request(E.GET_CHANNELS, {
                 timeout: t,
                 guild_id: e
             });
-            return s;
+            return n;
         }
         setCertifiedDevices(e) {
             return this.request(E.SET_CERTIFIED_DEVICES, {
@@ -355,18 +361,18 @@ onload() {
                 volume: t.volume
             });
         }
-        selectVoiceChannel(e, {timeout: t, force: s = !1} = {}) {
+        selectVoiceChannel(e, {timeout: t, force: n = !1} = {}) {
             return this.request(E.SELECT_VOICE_CHANNEL, {
                 channel_id: e,
                 timeout: t,
-                force: s
+                force: n
             });
         }
-        selectTextChannel(e, {timeout: t, force: s = !1} = {}) {
+        selectTextChannel(e, {timeout: t, force: n = !1} = {}) {
             return this.request(E.SELECT_TEXT_CHANNEL, {
                 channel_id: e,
                 timeout: t,
-                force: s
+                force: n
             });
         }
         getVoiceSettings() {
@@ -424,27 +430,27 @@ onload() {
             });
         }
         captureShortcut(e) {
-            const t = I(a.CAPTURE_SHORTCUT_CHANGE), s = () => (this._subscriptions.delete(t), 
+            const t = d(a.CAPTURE_SHORTCUT_CHANGE), n = () => (this._subscriptions.delete(t), 
             this.request(E.CAPTURE_SHORTCUT, {
                 action: "STOP"
             }));
             return this._subscriptions.set(t, ({shortcut: t}) => {
-                e(t, s);
+                e(t, n);
             }), this.request(E.CAPTURE_SHORTCUT, {
                 action: "START"
-            }).then(() => s);
+            }).then(() => n);
         }
-        setActivity(e = {}, t = T()) {
-            let s, n, i, o;
+        setActivity(e = {}, t = u()) {
+            let n, s, i, o;
             if (e.startTimestamp || e.endTimestamp) {
-                if ((s = {
+                if ((n = {
                     start: e.startTimestamp,
                     end: e.endTimestamp
-                }).start instanceof Date && (s.start = Math.round(s.start.getTime())), s.end instanceof Date && (s.end = Math.round(s.end.getTime())), 
-                s.start > 2147483647e3) throw new RangeError("timestamps.start must fit into a unix timestamp");
-                if (s.end > 2147483647e3) throw new RangeError("timestamps.end must fit into a unix timestamp");
+                }).start instanceof Date && (n.start = Math.round(n.start.getTime())), n.end instanceof Date && (n.end = Math.round(n.end.getTime())), 
+                n.start > 2147483647e3) throw new RangeError("timestamps.start must fit into a unix timestamp");
+                if (n.end > 2147483647e3) throw new RangeError("timestamps.end must fit into a unix timestamp");
             }
-            return (e.largeImageKey || e.largeImageText || e.smallImageKey || e.smallImageText) && (n = {
+            return (e.largeImageKey || e.largeImageText || e.smallImageKey || e.smallImageText) && (s = {
                 large_image: e.largeImageKey,
                 large_text: e.largeImageText,
                 small_image: e.smallImageKey,
@@ -460,15 +466,15 @@ onload() {
                 activity: {
                     state: e.state,
                     details: e.details,
-                    timestamps: s,
-                    assets: n,
+                    timestamps: n,
+                    assets: s,
                     party: i,
                     secrets: o,
                     instance: !!e.instance
                 }
             });
         }
-        clearActivity(e = T()) {
+        clearActivity(e = u()) {
             return this.request(E.SET_ACTIVITY, {
                 pid: e
             });
@@ -488,19 +494,19 @@ onload() {
                 user_id: e.id || e
             });
         }
-        createLobby(e, t, s) {
+        createLobby(e, t, n) {
             return this.request(E.CREATE_LOBBY, {
                 type: e,
                 capacity: t,
-                metadata: s
+                metadata: n
             });
         }
-        updateLobby(e, {type: t, owner: s, capacity: n, metadata: i} = {}) {
+        updateLobby(e, {type: t, owner: n, capacity: s, metadata: i} = {}) {
             return this.request(E.UPDATE_LOBBY, {
                 id: e.id || e,
                 type: t,
-                owner_id: s && s.id || s,
-                capacity: n,
+                owner_id: n && n.id || n,
+                capacity: s,
                 metadata: i
             });
         }
@@ -526,11 +532,11 @@ onload() {
                 id: e.id || e
             });
         }
-        updateLobbyMember(e, t, s) {
+        updateLobbyMember(e, t, n) {
             return this.request(E.UPDATE_LOBBY_MEMBER, {
                 lobby_id: e.id || e,
                 user_id: t.id || t,
-                metadata: s
+                metadata: n
             });
         }
         getRelationships() {
@@ -540,11 +546,11 @@ onload() {
                 type: e[t.type]
             })));
         }
-        subscribe(e, t, s) {
-            return s || "function" != typeof t || (s = t, t = void 0), this.request(E.SUBSCRIBE, t, e).then(() => {
-                const n = I(e, t);
-                return this._subscriptions.set(n, s), {
-                    unsubscribe: () => this.request(E.UNSUBSCRIBE, t, e).then(() => this._subscriptions.delete(n))
+        subscribe(e, t, n) {
+            return n || "function" != typeof t || (n = t, t = void 0), this.request(E.SUBSCRIBE, t, e).then(() => {
+                const s = d(e, t);
+                return this._subscriptions.set(s, n), {
+                    unsubscribe: () => this.request(E.UNSUBSCRIBE, t, e).then(() => this._subscriptions.delete(s))
                 };
             });
         }
@@ -554,15 +560,15 @@ onload() {
     };
 }, function(e, t) {
     e.exports = require("timers");
-}, function(e, t, s) {
+}, function(e, t, n) {
     "use strict";
     e.exports = {
-        ipc: s(11),
-        websocket: s(13)
+        ipc: n(11),
+        websocket: n(13)
     };
-}, function(e, t, s) {
+}, function(e, t, n) {
     "use strict";
-    const n = s(12), i = s(1), o = s(2), {uuid: r} = s(0), c = {
+    const s = n(12), i = n(1), o = n(2), {uuid: r} = n(0), c = {
         HANDSHAKE: 0,
         FRAME: 1,
         CLOSE: 2,
@@ -570,14 +576,14 @@ onload() {
         PONG: 4
     };
     function E(e = 0) {
-        return new Promise((t, s) => {
+        return new Promise((t, n) => {
             const i = function(e) {
                 if ("win32" === process.platform) return `\\\\?\\pipe\\discord-ipc-${e}`;
-                const {env: {XDG_RUNTIME_DIR: t, TMPDIR: s, TMP: n, TEMP: i}} = process;
-                return `${(t || s || n || i || "/tmp").replace(/\/$/, "")}/discord-ipc-${e}`;
+                const {env: {XDG_RUNTIME_DIR: t, TMPDIR: n, TMP: s, TEMP: i}} = process;
+                return `${(t || n || s || i || "/tmp").replace(/\/$/, "")}/discord-ipc-${e}`;
             }(e), o = () => {
-                e < 10 ? t(E(e + 1)) : s(new Error("Could not connect"));
-            }, r = n.createConnection(i, () => {
+                e < 10 ? t(E(e + 1)) : n(new Error("Could not connect"));
+            }, r = s.createConnection(i, () => {
                 r.removeListener("error", o), t(r);
             });
             r.once("error", o);
@@ -585,31 +591,31 @@ onload() {
     }
     function a(e, t) {
         t = JSON.stringify(t);
-        const s = Buffer.byteLength(t), n = Buffer.alloc(8 + s);
-        return n.writeInt32LE(e, 0), n.writeInt32LE(s, 4), n.write(t, 8, s), n;
+        const n = Buffer.byteLength(t), s = Buffer.alloc(8 + n);
+        return s.writeInt32LE(e, 0), s.writeInt32LE(n, 4), s.write(t, 8, n), s;
     }
     const _ = {
         full: "",
         op: void 0
     };
-    function T(e, t) {
-        const s = e.read();
-        if (!s) return;
-        let n, {op: i} = _;
+    function u(e, t) {
+        const n = e.read();
+        if (!n) return;
+        let s, {op: i} = _;
         if ("" === _.full) {
-            i = _.op = s.readInt32LE(0);
-            const e = s.readInt32LE(4);
-            n = s.slice(8, e + 8);
-        } else n = s.toString();
+            i = _.op = n.readInt32LE(0);
+            const e = n.readInt32LE(4);
+            s = n.slice(8, e + 8);
+        } else s = n.toString();
         try {
             t({
                 op: i,
-                data: JSON.parse(_.full + n)
+                data: JSON.parse(_.full + s)
             }), _.full = "", _.op = void 0;
         } catch (e) {
-            _.full += n;
+            _.full += s;
         }
-        T(e, t);
+        u(e, t);
     }
     e.exports = class extends i {
         constructor(e) {
@@ -622,7 +628,7 @@ onload() {
                 v: 1,
                 client_id: this.client.clientId
             })), e.pause(), e.on("readable", () => {
-                T(e, ({op: e, data: t}) => {
+                u(e, ({op: e, data: t}) => {
                     switch (e) {
                       case c.PING:
                         this.send(t, c.PONG);
@@ -632,10 +638,10 @@ onload() {
                         if (!t) return;
                         "AUTHORIZE" === t.cmd && "ERROR" !== t.evt && async function e(t = 0) {
                             if (t > 30) throw new Error("Could not find endpoint");
-                            const s = `http://127.0.0.1:${6463 + t % 10}`;
+                            const n = `http://127.0.0.1:${6463 + t % 10}`;
                             try {
-                                return 401 !== (await o(s)).status ? e(t + 1) : s;
-                            } catch (s) {
+                                return 401 !== (await o(n)).status ? e(t + 1) : n;
+                            } catch (n) {
                                 return e(t + 1);
                             }
                         }().then(e => {
@@ -661,23 +667,23 @@ onload() {
         ping() {
             this.send(r(), c.PING);
         }
-    }, e.exports.encode = a, e.exports.decode = T;
+    }, e.exports.encode = a, e.exports.decode = u;
 }, function(e, t) {
     e.exports = require("net");
-}, function(e, t, s) {
+}, function(e, t, n) {
     "use strict";
-    const n = s(1), {browser: i} = s(3), o = i ? window.WebSocket : s(14), r = e => JSON.stringify(e), c = e => JSON.parse(e);
-    e.exports = class extends n {
+    const s = n(1), {browser: i} = n(3), o = i ? window.WebSocket : n(14), r = e => JSON.stringify(e), c = e => JSON.parse(e);
+    e.exports = class extends s {
         constructor(e) {
             super(), this.client = e, this.ws = null, this.tries = 0;
         }
         async connect(e, t = this.tries) {
             if (this.connected) return;
-            const s = 6463 + t % 10;
-            this.hostAndPort = `127.0.0.1:${s}`;
-            const n = this.ws = new o(`ws://${this.hostAndPort}/?v=1&client_id=${this.client.clientId}`);
-            n.onopen = this.onOpen.bind(this), n.onclose = n.onerror = this.onClose.bind(this), 
-            n.onmessage = this.onMessage.bind(this);
+            const n = 6463 + t % 10;
+            this.hostAndPort = `127.0.0.1:${n}`;
+            const s = this.ws = new o(`ws://${this.hostAndPort}/?v=1&client_id=${this.client.clientId}`);
+            s.onopen = this.onOpen.bind(this), s.onclose = s.onerror = this.onClose.bind(this), 
+            s.onmessage = this.onMessage.bind(this);
         }
         send(e) {
             this.ws && this.ws.send(r(e));
@@ -701,10 +707,3 @@ onload() {
         }
     };
 }, function(e, t) {} ]);
-	},
-	onunload() {
-		setting.delete();
-	}
-});
-
-})()
