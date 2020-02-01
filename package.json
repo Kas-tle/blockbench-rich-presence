@@ -18,9 +18,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "webpack && js-beautify dist/discord-rpc.js && release-it",
+    "release": "webpack && js-beautify -r dist/discord-rpc.js && release-it patch --ci --no-git.requireCleanWorkingDir",
     "build": "webpack",
-    "prettyprint": "js-beautify dist/discord-rpc.js -o dist/discord-rpc.js"
+    "prettyprint": "js-beautify -r dist/discord-rpc.js"
   },
   "repository": {
     "type": "git",
