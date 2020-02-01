@@ -13,11 +13,11 @@ let installed = true
 let curProject = ''
 
 Plugin.register('discord-rpc', {
-  'title': 'Discord RPC',
-  'author': 'strajabot & Kastle & simplyme',
-  'icon': 'announcement',
-  'version': '1.0.1',
-  'description': 'Show a rich presence status in Discord',
+  title: 'Discord RPC',
+  author: 'strajabot & Kastle & simplyme',
+  icon: 'announcement',
+  version: '1.0.1',
+  description: 'Show a rich presence status in Discord',
   onload() {
     setting = new Setting('obfuscaterpc', {
       value: true,
@@ -29,7 +29,7 @@ Plugin.register('discord-rpc', {
       if (!rpc) {
         return
       }
-      
+
       if (curProject !== Project.name) {
         curProject = Project.name
         startTimestamp = new Date()
