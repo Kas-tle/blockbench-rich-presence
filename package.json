@@ -1,6 +1,6 @@
 {
   "name": "blockbench-rich-presence",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Creating a Discord rich presence plugin for Blockbench",
   "main": "main.js",
   "dependencies": {
@@ -44,7 +44,9 @@
     },
     "github": {
       "release": true,
-      "assets": ["dist/discord-rpc.js"],
+      "assets": [
+        "dist/discord-rpc.js"
+      ],
       "releaseName": "Blockbench RPC %s",
       "tokenRef": "GITHUB_TOKEN"
     }
