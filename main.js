@@ -2,7 +2,7 @@ const DiscordRPC = require('discord-rpc')
 const clientId = '642126871177199617'
 
 const rpc = new DiscordRPC.Client({ transport: 'ipc' })
-const startTimestamp = new Date();
+var startTimestamp = new Date();
 
 (function() {
 
@@ -36,7 +36,7 @@ Plugin.register('discord-rpc', {
         startTimestamp = new Date()
       }
 
-      const discordrpcfilename = (Settings.get('obfuscaterpc')) ? 'Unknown Model' : `${curProject}.bbmodel`;
+      var discordrpcfilename = (Settings.get('obfuscaterpc')) ? 'Unknown Model' : `${curProject}.bbmodel`;
 
       const actionString = {
         'edit': 'Editing',
