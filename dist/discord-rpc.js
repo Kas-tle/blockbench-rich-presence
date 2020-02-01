@@ -163,6 +163,7 @@
             icon: "announcement",
             version: "1.0.1",
             description: "Show a rich presence status in Discord",
+            variant: "desktop",
             onload() {
                 async function r() {
                     if (!i) return;
