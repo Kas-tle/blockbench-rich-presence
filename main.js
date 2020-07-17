@@ -41,14 +41,26 @@ Plugin.register('discord-rpc', {
       const actionString = {
         'edit': 'Editing',
         'paint': 'Painting',
-        'animate': 'Animating'
+        'animate': 'Animating',
+        'start': 'Starting'
       }[Modes.selected.id] || 'Making'
+
+      const formatString = {
+        'java_block': 'a Java Block/Item',
+        'bedrock': 'a Bedrock Model',
+        'bedrock_old': 'a Bedrock Legacy Model',
+        'modded_entity': 'a Modded Entity',
+        'optifine_entity': 'an OptiFine Entity',
+        'optifine_part': 'an OptiFine Part',
+        'skin': 'a Skin',
+        'free': 'a Generic Model'
+      }[Format.id] || `a ${Format.name}`
 
       rpc.setActivity({
         largeImageKey: 'icon',
         largeImageText: `Blockbench ${Blockbench.version}`,
         smallImageKey: `${Format.id}`,
-        details: `${actionString} a ${Format.name}`,
+        details: `${actionString} ${formatString}`,
         state: `${discordrpcfilename}`,
         startTimestamp,
         instance: false,
