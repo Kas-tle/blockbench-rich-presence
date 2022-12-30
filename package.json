@@ -12,7 +12,7 @@
     "utf-8-validate": "^5.0.2"
   },
   "devDependencies": {
-    "release-it": "^13.6.5",
+    "release-it": "^13.7.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12"
   },
